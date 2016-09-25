@@ -1,0 +1,6 @@
+{% extends template.self %}
+
+{% block head %}
+    {{ super() }}
+    <link href="{{ config.pluginsConfig.feed.filename }}" title="{{ config.pluginsConfig.feed.title }}" rel="alternate" type="application/{{ config.pluginsConfig.feed.feed_type }}+xml" />
+{% endblock %}

@@ -1,0 +1,88 @@
+{
+  "name": "gitbook-plugin-feed",
+  "description": "Feed(RSS/Atom) for GitBook",
+  "main": "index.js",
+  "version": "0.0.1",
+  "engines": {
+    "gitbook": "*"
+  },
+  "homepage": "https://github.com/billryan/gitbook-plugin-feed",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/billryan/gitbook-plugin-feed.git"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/billryan/gitbook-plugin-feed/issues"
+  },
+  "dependencies": {
+    "get-md-desc": "^1.0.2",
+    "get-md-title": "^1.0.4",
+    "feed": "^0.3.0"
+  },
+  "gitbook": {
+    "properties": {
+      "hostname": {
+          "type": "string",
+          "required": true,
+          "description": "Hostname for the book"
+      },
+      "title": {
+        "type": "string",
+        "required": true,
+        "description": "Feed Title"
+      },
+      "filename": {
+        "type": "string",
+        "required": true,
+        "description": "Filename to the feed."
+      },
+      "feed_type": {
+        "type": "string",
+        "required": true,
+        "description": "Feed type: RSS 2.0 or Atom 1.0."
+      },
+      "author": {
+        "type": "string",
+        "required": true,
+        "description": "Who manages content in this feed."
+      },
+      "description": {
+        "type": "string",
+        "description": "A short description of the feed."
+      },
+      "id": {
+        "type": "string",
+        "description": "ID for the feed"
+      },
+      "link": {
+        "type": "string",
+        "description": "Url to the feed."
+      },
+      "image_url": {
+        "type": "string",
+        "description": "Small image for feed readers to use."
+      },
+      "copyright": {
+        "type": "string",
+        "description": "Copyright information for this feed."
+      },
+      "generator": {
+        "type": "string",
+        "description": "Feed generator."
+      },
+      "categories": {
+        "type": "array",
+        "description": "One or more categories this feed belongs to."
+      }
+    }
+  },
+  "keywords": [
+    "gitbook",
+    "plugin",
+    "feed",
+    "rss",
+    "atom"
+  ],
+  "author": "Bill Ryan <yuanbin2014@gmail.com>"
+}
