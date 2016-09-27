@@ -30,6 +30,7 @@ module.exports = {
     },
 
     "page:before": function (page) {
+      if (this.output.name != 'website') return page;
       var _title = page.title;
       var _desc = desc(page.content);
       var _url = feed_cfg.hostname + this.output.toURL(page.path);
@@ -37,7 +38,7 @@ module.exports = {
 
       feed.addItem({
         title: _title,
-        description: _desc.text,
+        description: _desc ? _desc.text : 'description',
         link: _url,
         id: _url
       });
