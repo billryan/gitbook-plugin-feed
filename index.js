@@ -47,6 +47,7 @@ module.exports = {
     },
 
     "finish": function () {
+      if (this.output.name != 'website') return;
       var lang = this.isLanguageBook()? this.config.values.language : '';
       var feed_content = feed.render('rss-2.0');
       return this.output.writeFile(feed_cfg.filename, feed_content);

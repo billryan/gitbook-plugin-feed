@@ -2,7 +2,7 @@
   "name": "gitbook-plugin-feed",
   "description": "Feed(RSS/Atom) for GitBook",
   "main": "index.js",
-  "version": "0.0.7",
+  "version": "0.0.8",
   "engines": {
     "gitbook": "*"
   },
