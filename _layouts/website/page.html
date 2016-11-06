@@ -2,5 +2,5 @@
 
 {% block head %}
     {{ super() }}
-    <link href="{{ config.pluginsConfig.feed.filename }}" title="{{ config.pluginsConfig.feed.title }}" rel="alternate" type="application/{{ config.pluginsConfig.feed.feed_type }}+xml" />
+    <link href="feed.xml" title="{{ config.pluginsConfig.feed.title }}" rel="alternate" type="application/{{ config.pluginsConfig.feed.format }}+xml" />
 {% endblock %}

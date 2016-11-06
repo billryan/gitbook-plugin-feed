@@ -5,7 +5,7 @@ require([ 'gitbook' ], function (gitbook) {
       label: 'Feed',
       position: 'right',
       onClick: function () {
-        window.open(config.feed.filename);
+        window.open('feed.xml');
       }
     });
   });

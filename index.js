@@ -1,6 +1,5 @@
 var url = require('url');
 var Feed = require('feed');
-var desc = require('get-md-desc')
 
 var feed = null;
 var feed_cfg = null;
@@ -22,6 +21,10 @@ module.exports = {
       feed_cfg.description = feed_cfg.description || feed_cfg.title;
       feed_cfg.hostname = url.resolve(feed_cfg.hostname, '/') + lang;
       feed_cfg.id = feed_cfg.id || feed_cfg.hostname;
+      feed_cfg.format = feed_cfg.format || 'atom';
+      feed_cfg.feed_format = 'atom-1.0';
+      if (feed_cfg.format !== 'atom') feed_cfg.feed_format = 'rss-2.0';
+
       feed_cfg.link = feed_cfg.link || feed_cfg.hostname;
       feed_cfg.author.name = feed_cfg.author;
       feed_cfg.author.link = feed_cfg.author;
@@ -29,18 +32,25 @@ module.exports = {
       feed = new Feed(feed_cfg);
     },
 
-    "page:before": function (page) {
+    "page": function (page) {
       if (this.output.name != 'website') return page;
       var _title = page.title;
-      var _desc = desc(page.content);
-      var _url = feed_cfg.hostname + this.output.toURL(page.path);
+      var _desc = page.content || 'page description';
+      var _content = page.content || 'page content';
+      var page_path = this.output.toURL(page.path);
+      if (page_path === './') page_path = '';
+      var _url = feed_cfg.hostname + page_path;
       var _id = _url;
+
+      var _date = page.date || new Date();
 
       feed.addItem({
         title: _title,
-        description: _desc ? _desc.text : 'description',
+        description: _desc,
+        content: _content,
         link: _url,
-        id: _url
+        id: _url,
+        date: _date
       });
 
       return page;
@@ -48,9 +58,10 @@ module.exports = {
 
     "finish": function () {
       if (this.output.name != 'website') return;
-      var lang = this.isLanguageBook()? this.config.values.language : '';
-      var feed_content = feed.render('rss-2.0');
-      return this.output.writeFile(feed_cfg.filename, feed_content);
+      // var lang = this.isLanguageBook()? this.config.values.language : '';
+      feed.categories = feed_cfg.categories;
+      var feed_content = feed.render(feed_cfg.feed_format);
+      return this.output.writeFile('feed.xml', feed_content);
     }
   }
 };
