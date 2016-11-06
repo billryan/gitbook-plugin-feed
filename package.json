@@ -2,7 +2,7 @@
   "name": "gitbook-plugin-feed",
   "description": "Feed(RSS/Atom) for GitBook",
   "main": "index.js",
-  "version": "0.0.8",
+  "version": "0.1",
   "engines": {
     "gitbook": "*"
   },
@@ -16,8 +16,6 @@
     "url": "https://github.com/billryan/gitbook-plugin-feed/issues"
   },
   "dependencies": {
-    "get-md-desc": "^1.0.2",
-    "get-md-title": "^1.0.4",
     "feed": "^0.3.0"
   },
   "gitbook": {
@@ -25,22 +23,16 @@
       "hostname": {
           "type": "string",
           "required": true,
-          "description": "Hostname for the book"
+          "description": "Base url for the book"
       },
       "title": {
         "type": "string",
         "required": true,
         "description": "Feed Title"
       },
-      "filename": {
+      "format": {
         "type": "string",
-        "required": true,
-        "description": "Filename to the feed."
-      },
-      "feed_type": {
-        "type": "string",
-        "required": true,
-        "description": "Feed type: RSS 2.0 or Atom 1.0."
+        "description": "Feed format: atom or rss."
       },
       "author": {
         "type": "string",
