@@ -4,8 +4,6 @@
 
 This plugin will add feed(RSS 2.0/Atom 1.0) for your GitBook.
 
-**Under development, use it just for test.**
-
 ## Sample config
 
 ```
@@ -15,18 +13,14 @@ This plugin will add feed(RSS 2.0/Atom 1.0) for your GitBook.
     ],
     "pluginsConfig": {
         "feed": {
-            "hostname": "http://algorithm.yuanbin.me",
+            "hostname": "https://yuanbin.gitbooks.io/test/content",
             "title": "GitBook Test",
-            "filename": "rss2.xml",
-            "feed_type": "rss",
-            "author": "billryan",
-            "description": "Test for GitBook",
-            "categories": [
-              "programming",
-              "algorithm",
-              "leetcode"
-            ]
+            "author": "billryan"
         }
     }
 }
 ```
+
+## License
+
+MIT
