@@ -23,7 +23,7 @@ module.exports = {
       feed_cfg.id = feed_cfg.id || feed_cfg.hostname;
       feed_cfg.format = feed_cfg.format || 'atom';
       feed_cfg.feed_format = 'atom-1.0';
-      if (feed_cfg.format !== 'atom') feed_cfg.feed_format = 'rss-2.0';
+      if (feed_cfg.format === 'rss') feed_cfg.feed_format = 'rss-2.0';
 
       feed_cfg.link = feed_cfg.link || feed_cfg.hostname;
       feed_cfg.author.name = feed_cfg.author;
