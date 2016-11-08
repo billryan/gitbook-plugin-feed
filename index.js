@@ -34,6 +34,7 @@ module.exports = {
 
     "page": function (page) {
       if (this.output.name != 'website') return page;
+      if (typeof page.title === 'undefined') return page;
       var _title = page.title;
       var _desc = page.content || 'page description';
       var _content = page.content || 'page content';
